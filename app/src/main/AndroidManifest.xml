@@ -13,6 +13,9 @@
         android:theme="@style/Theme.SuitcaseNew"
         tools:targetApi="31">
         <activity
+            android:name=".ImageGallary"
+            android:exported="false" />
+        <activity
             android:name=".MainScreen"
             android:exported="false" />
         <activity

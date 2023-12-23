@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.leonteqsecurity.suitcasenew.Models.CardItemVacations;
 import com.leonteqsecurity.suitcasenew.R;
 
+import java.util.List;
+
 
 public class VacationAdaptor extends ArrayAdapter<CardItemVacations> {
 
