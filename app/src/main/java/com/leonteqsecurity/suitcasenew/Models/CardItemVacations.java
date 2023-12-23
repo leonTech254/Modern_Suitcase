@@ -5,7 +5,17 @@ import android.widget.ImageView;
 public class CardItemVacations {
     private String VacationLocation;
     private String imageBackground;
+
+    private String description;
     private  int Id;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getId() {
         return Id;
@@ -15,6 +25,13 @@ public class CardItemVacations {
         Id = id;
     }
 
+
+    public CardItemVacations(String vacationLocation, String imageBackground, String description, int id) {
+        VacationLocation = vacationLocation;
+        this.imageBackground = imageBackground;
+        this.description = description;
+        Id = id;
+    }
 
     public CardItemVacations(String vacationLocation, String imageBackground, int id) {
         VacationLocation = vacationLocation;

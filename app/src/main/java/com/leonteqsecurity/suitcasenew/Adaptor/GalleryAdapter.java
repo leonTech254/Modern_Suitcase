@@ -1,4 +1,4 @@
-package com.leonteqsecurity.suitcasenew.Models;
+package com.leonteqsecurity.suitcasenew.Adaptor;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,6 @@ import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.airbnb.lottie.animation.content.Content;
 import com.google.android.material.card.MaterialCardView;
 import com.leonteqsecurity.suitcasenew.MainScreen;
 import com.leonteqsecurity.suitcasenew.R;

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.leonteqsecurity.suitcasenew.Models.GalleryAdapter;
+import com.leonteqsecurity.suitcasenew.Adaptor.GalleryAdapter;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,7 +1,9 @@
 package com.leonteqsecurity.suitcasenew.Adaptor;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.leonteqsecurity.suitcasenew.Models.CardItemVacations;
 import com.leonteqsecurity.suitcasenew.R;
+import com.leonteqsecurity.suitcasenew.VacationItemScreen;
 
 import java.util.List;
 
@@ -43,6 +46,9 @@ public class VacationAdaptor extends ArrayAdapter<CardItemVacations> {
                 // Handle card click event here
                 String clickedCardTitle = cardItems[position].getVacationLocation();
                 Toast.makeText(context, "Clicked on " + clickedCardTitle, Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(context, VacationItemScreen.class);
+                context.startActivity(intent);
+                ((Activity) context).finish();
             }
         });
 

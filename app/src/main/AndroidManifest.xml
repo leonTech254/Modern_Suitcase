@@ -13,6 +13,12 @@
         android:theme="@style/Theme.SuitcaseNew"
         tools:targetApi="31">
         <activity
+            android:name=".VacationOneItemScreen"
+            android:exported="false" />
+        <activity
+            android:name=".VacationItemScreen"
+            android:exported="false" />
+        <activity
             android:name=".ImageGallary"
             android:exported="false" />
         <activity
