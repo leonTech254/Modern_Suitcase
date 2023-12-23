@@ -4,56 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainScreen">
-
-    <com.google.android.material.card.MaterialCardView
+    tools:context=".MainScreen"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="8dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10sp"
             >
-
-
-
-        <ImageView
-            android:id="@+id/cardImageView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg1" />
-
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Canada"
-                android:background="@drawable/pill_background"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="10dp"
+                android:text="Expore"
+                android:textSize="20sp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SuitCase"
+                android:textSize="30sp"
+                style="@style/TextBlack"
                 />
 
-        <!-- Love heart icon -->
-        <ImageView
-            android:id="@+id/loveHeartIcon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_margin="16dp"
-            android:layout_gravity="top|end"
-            android:src="@drawable/favorite_24px"
-            app:tint="@color/red"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="30dp"
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+
+            >
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/radio_button_checked_24px"
+                app:tint="@color/blue" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Algeria,USA"
+                style="@style/TextBlack"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Next Vacation"
+            android:textSize="20sp"
+            android:layout_marginTop="20sp"
             />
-        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="see all"
+            android:textColor="@color/blue"
+            />
+    </LinearLayout>
+    <GridView
+        android:padding="5dp"
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_container"
+        android:columnWidth="180dp"
+        android:gravity="center"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="8dp"
+        android:horizontalSpacing="8dp"
+        android:layout_centerInParent="true" />
 
 
-    </com.google.android.material.card.MaterialCardView>
+
+
+<androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 
 </LinearLayout>
