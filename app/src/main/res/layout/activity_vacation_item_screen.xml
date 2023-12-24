@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VacationItemScreen"
     android:orientation="vertical"
+    android:background="@color/white"
+
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
         >
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -22,34 +29,77 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 >
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/arrow_back_ios_new24px"
+                        app:tint="@color/white"
+                        android:background="@color/white"
+                        />
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/share_24px"
+                        app:tint="@color/white"
+                        android:layout_alignParentEnd="true"
+                        android:background="@color/white"
+                        />
+
+                </RelativeLayout>
+
+
                 <ImageView
                     android:id="@+id/cardImageView"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/bg1" />
-                <com.google.android.material.chip.Chip
+                    android:src="@drawable/bg1"
 
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/edit_24px"
+                        app:tint="@color/white" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/circle_24px"
+                        app:tint="@color/white" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/delete_24px"
+                        app:tint="@color/white"
+                        android:layout_marginRight="20dp"
+
+                        />
+                </LinearLayout>
+                <com.google.android.material.chip.Chip
                     android:id="@+id/chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Canada"
+                    android:text="Add Item"
+                    android:textColor="@color/white"
+                    app:chipBackgroundColor="@color/yellow"
                     android:background="@drawable/pill_background"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/loveHeartIcon"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_margin="16dp"
-                    android:layout_gravity="top|end"
-                    android:src="@drawable/favorite_24px"
-                    app:tint="@color/red"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginRight="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:onClick="AddItem"
                     />
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -59,10 +109,12 @@
             android:padding="10dp"
             >
             <TextView
+                android:id="@+id/vacationLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cananda"
                 style="@style/TextBlack"
+                android:textSize="25sp"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -103,6 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="This is the description of the project"
+            android:textColor="@color/black"
             />
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -127,18 +180,18 @@
                 />
         </RelativeLayout>
 
+
     </LinearLayout>
-
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewItems"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:background="@android:color/white"
         android:clipToPadding="false"
         android:padding="16dp"
-        android:background="@android:color/white"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_vacation" />
+
 </LinearLayout>
+    </ScrollView>

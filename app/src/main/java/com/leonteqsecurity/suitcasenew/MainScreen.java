@@ -12,12 +12,15 @@ import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.leonteqsecurity.suitcasenew.Adaptor.VacationAdaptor;
 import com.leonteqsecurity.suitcasenew.Database.DbHelper;
 import com.leonteqsecurity.suitcasenew.Models.CardItemVacations;
+import com.leonteqsecurity.suitcasenew.Models.VacationItem;
 
+import java.util.Collections;
 import java.util.List;
 
 public class MainScreen extends AppCompatActivity {
@@ -25,15 +28,19 @@ public class MainScreen extends AppCompatActivity {
     private DbHelper dbHelper;
     private  String imageBackground;
     private  String IsActive;
+
+    private boolean IsAll;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         GridView gridLayout = findViewById(R.id.gridView);
         dbHelper=new DbHelper(this);
-       DisplayCards();
+        IsAll=true;
+
+       DisplayCards(true);
     }
-    public  void DisplayCards()
+    public  void DisplayCards(boolean display2)
     {
         IsActive= getDataFromSharedPreferences(this, "IsActive");
         if(IsActive.equals("true"))
@@ -43,6 +50,12 @@ public class MainScreen extends AppCompatActivity {
 
         }
         List<CardItemVacations> cardItemVacationsList=dbHelper.getAllVacations();
+        Collections.reverse(cardItemVacationsList);
+
+       List<CardItemVacations> cardItemVacations= FilterLists(cardItemVacationsList,display2);
+
+
+
         gridView = findViewById(R.id.gridView);
 //        CardItemVacations[] cardItems = {
 //
@@ -51,9 +64,32 @@ public class MainScreen extends AppCompatActivity {
 //                new CardItemVacations("Usa","imageUrl"),
 //                new CardItemVacations("Nigeria","imageUrl"),
 //        };
-        VacationAdaptor adapter = new VacationAdaptor(this, cardItemVacationsList.toArray(new CardItemVacations[0]));
+        VacationAdaptor adapter = new VacationAdaptor(this, cardItemVacations.toArray(new CardItemVacations[0]));
         gridView.setAdapter(adapter);
     }
+
+    public  List<CardItemVacations>  FilterLists(List<CardItemVacations> cardItemVacationsList,boolean display2)
+    {
+        if(display2)
+        {
+            if(cardItemVacationsList.size()>2)
+            {
+                List<CardItemVacations> firstTwoElements = cardItemVacationsList.subList(0, Math.min(cardItemVacationsList.size(), 2));
+                return firstTwoElements;
+            }else
+            {
+                return cardItemVacationsList;
+            }
+
+        }else {
+            return cardItemVacationsList;
+
+        }
+
+
+    }
+
+
 
     public void AddVactionLocation(View view) {
         Intent intent = new Intent(this,ImageGallary.class);
@@ -67,23 +103,24 @@ public class MainScreen extends AppCompatActivity {
         View view = inflater.inflate(R.layout.popup_add_vacation, null);
 
         EditText editTextLocation = view.findViewById(R.id.editTextLocation);
-        EditText editTextImage = view.findViewById(R.id.editTextImage);
-        editTextImage.setText("imagechoosen");
-        editTextImage.setEnabled(false);
+        EditText editTextDescription = view.findViewById(R.id.formVacationDescription);
         new MaterialAlertDialogBuilder(this)
                 .setTitle("Add Vacation Location")
                 .setView(view)
                 .setPositiveButton("Add", (dialogInterface, i) -> {
                     // Retrieve data from the form
                     String location = editTextLocation.getText().toString();
-                    String imageUrl = imageBackground;
+                    String vacationDescription = editTextDescription.getText().toString();
 
                     // Add the new vacation to the database
-                    CardItemVacations cardItemVacations=new CardItemVacations(location, imageUrl);
+                    CardItemVacations cardItemVacations=new CardItemVacations();
+                    cardItemVacations.setDescription(vacationDescription);
+                    cardItemVacations.setImageBackground(imageBackground);
+                    cardItemVacations.setVacationLocation(location);
                     dbHelper.insertVacation(cardItemVacations);
 
                     // Refresh the grid or update UI as needed
-                    DisplayCards();
+                    DisplayCards(true);
                 })
                 .setNegativeButton("Cancel", null)
                 .show();
@@ -101,6 +138,21 @@ public class MainScreen extends AppCompatActivity {
         editor.apply();
     }
 
+    public void SeeAllVacation(View view) {
+        TextView seeAll=(TextView) findViewById(R.id.seeAll);
+        if(IsAll)
+        {
+            DisplayCards(false);
+            seeAll.setText("see less");
+            IsAll=false;
+        }else
+        {
+            DisplayCards(true);
+            seeAll.setText("see All");
+            IsAll=true;
+        }
+
+    }
 }
 
 

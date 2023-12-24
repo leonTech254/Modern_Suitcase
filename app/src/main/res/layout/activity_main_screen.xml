@@ -72,10 +72,12 @@
                 android:layout_marginTop="20sp"
                 />
             <TextView
+                android:id="@+id/seeAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="see all"
                 android:textColor="@color/blue"
+                android:onClick="SeeAllVacation"
                 />
         </LinearLayout>
         <ImageView

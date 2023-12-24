@@ -3,22 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_marginLeft="2dp"
+    android:id="@+id/ItemCard"
 
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg1"
+        >
+        <com.google.android.material.chip.Chip
+            android:id="@+id/ContryItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Canada"
+            android:background="@drawable/pill_background"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
     <TextView
         android:id="@+id/textViewItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Item Name"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textViewItemDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Item Description"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp" />
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        />
 
     <TextView
         android:id="@+id/textViewItemPrice"
@@ -26,6 +39,8 @@
         android:layout_height="wrap_content"
         android:text="Item Price"
         android:textSize="16sp"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="4dp"
+        android:textColor="@color/black"
+        />
 
 </LinearLayout>

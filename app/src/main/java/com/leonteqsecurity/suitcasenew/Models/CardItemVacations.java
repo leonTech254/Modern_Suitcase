@@ -25,6 +25,8 @@ public class CardItemVacations {
         Id = id;
     }
 
+    public CardItemVacations() {
+    }
 
     public CardItemVacations(String vacationLocation, String imageBackground, String description, int id) {
         VacationLocation = vacationLocation;

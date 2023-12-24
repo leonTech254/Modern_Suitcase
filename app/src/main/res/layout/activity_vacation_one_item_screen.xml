@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".VacationOneItemScreen"
     android:orientation="vertical"
+    android:background="@color/white"
     >
     <LinearLayout
         android:id="@+id/image_Wrapper"
@@ -67,19 +68,13 @@
             android:padding="10dp"
             >
             <TextView
+                android:id="@+id/product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Product name"
                 style="@style/TextBlack"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Show map"
-                android:layout_alignParentRight="true"
-                android:textStyle="bold"
-                android:textColor="@color/blue"
-                />
+
         </RelativeLayout>
 
         <LinearLayout
@@ -109,10 +104,11 @@
 
         >
         <TextView
-            android:id="@+id/vacationDescription"
+            android:id="@+id/vacationProductDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="This is the description of the project"
+            android:textColor="@color/black"
             />
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -150,6 +146,7 @@
             android:layout_height="wrap_content"
             android:text="Check Product on"
             style="@style/TextBlack"
+
             />
         <LinearLayout
             android:layout_width="wrap_content"
@@ -158,17 +155,15 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ebay"
+                android:onClick="SearcEbay"
                 />
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/amazon"
+                android:onClick="SearchAmazon"
                 />
-
-
         </LinearLayout>
-
-
 
     </LinearLayout>
 
