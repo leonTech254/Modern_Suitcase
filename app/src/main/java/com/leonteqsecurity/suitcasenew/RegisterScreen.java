@@ -34,7 +34,12 @@ public class RegisterScreen extends AppCompatActivity {
     }
 
 
-    public void ToLogin(View view) {
+    private void ToLogin(View view)
+    {
+        Intent intent = new Intent(this, LoginScreen.class);
+        startActivity(intent);
+    }
+    public void RegisterUser(View view) {
         String firstname=FirstName.getText().toString();
         String lastname=LastName.getText().toString();
         String email=Email.getText().toString();
@@ -56,7 +61,9 @@ public class RegisterScreen extends AppCompatActivity {
             dbHelper.insertUser(user);
             Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show();
         }
+    }
 
+    public void ToLoginScreen(View view) {
         Intent intent = new Intent(this, LoginScreen.class);
         startActivity(intent);
     }

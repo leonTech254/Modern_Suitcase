@@ -15,7 +15,7 @@ import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "vacation_database";
-    private static final int DATABASE_VERSION = 13;
+    private static final int DATABASE_VERSION = 15;
     private static final String TABLE_NAME = "vacation_table";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_LOCATION = "location";
