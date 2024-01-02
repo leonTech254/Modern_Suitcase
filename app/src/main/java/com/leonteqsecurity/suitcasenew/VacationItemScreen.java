@@ -5,12 +5,19 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
@@ -38,6 +45,32 @@ public class VacationItemScreen extends AppCompatActivity {
 
     private String itemImage;
 
+    private static final int REQUEST_PICK_IMAGE = 100;
+    public static final String REFRESH_ACTION = "com.leonteqsecurity.suitcasenew.REFRESH_ACTION";
+    private final BroadcastReceiver refreshReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Handle the broadcast and perform your refresh operations here
+            showAddVacationItemForm();
+            Toast.makeText(context, "Hello from the receiver", Toast.LENGTH_SHORT).show();
+
+        }
+    };
+
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter(REFRESH_ACTION);
+        registerReceiver(refreshReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(refreshReceiver);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +84,7 @@ public class VacationItemScreen extends AppCompatActivity {
         // Assume you have a dbHelper instance
         Intent intent = getIntent();
         vacationId = intent.getStringExtra("vacationId");
+
         ShowVaction(vacationId);
     }
 
@@ -74,6 +108,19 @@ public class VacationItemScreen extends AppCompatActivity {
         itemAdapter = new VacationItemAdapter(this,itemList);
         recyclerViewItems.setAdapter(itemAdapter);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+            // Handle the selected image URI from the gallery
+            Uri selectedImageUri = data.getData();
+            Toast.makeText(this, "Selected Image URI: " + selectedImageUri, Toast.LENGTH_SHORT).show();
+            itemAdapter.onActivityResult(requestCode, resultCode, data);
+            ShowVaction(vacationId);
+        }
+
+        }
 
     private void showAddVacationItemForm() {
         LayoutInflater inflater = LayoutInflater.from(this);

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:background="@color/cardview_light_background"
+    android:layout_marginBottom="2dp"
+    >
+
+    <ImageView
+        android:id="@+id/phone_number_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/contacts_24px"
+        android:layout_centerVertical="true"
+        app:tint="@color/dark_cyan" />
+
+    <LinearLayout
+        android:id="@+id/phone_contact_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/phone_number_icon"
+        android:orientation="vertical"
+        android:layout_marginLeft="10sp"
+        >
+        <TextView
+            android:id="@+id/phone_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leon Martin"
+            android:fontFamily="@font/lemon_font"
+            style="@style/TEXT"
+            android:layout_marginTop="10sp"
+            />
+        <TextView
+            android:id="@+id/phone_book_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+254719531573"
+            style="@style/TEXT"
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/assign_item_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send"
+        android:textSize="15sp"
+        android:fontFamily="@font/lemon_font"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/blue"
+        />
+</RelativeLayout>

@@ -183,23 +183,27 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     // Update
-    public int updateVacationItem(VacationItem item) {
+    public int updateVacationItem(VacationItem item, String description) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_ITEM_NAME, item.getItemName());
         values.put(COLUMN_ITEM_DESCRIPTION, item.getItemDescription());
         values.put(COLUMN_ITEM_PRICE, item.getItemPrice());
+        values.put(COLUMN_PRODUCT_IMAGE, item.getProductImage());
         values.put(COLUMN_IS_ITEM_PURCHASED, item.isItemPurchased() ? 1 : 0);
-        values.put(COLUMN_COUNTRY_NAME, item.getContryname());
 
-        return db.update(TABLE_NAME_VACATION_ITEMS, values, COLUMN_ITEM_ID + " = ?",
-                new String[]{String.valueOf(item.getId())});
+        return db.update(
+                TABLE_NAME_VACATION_ITEMS,
+                values,
+                COLUMN_ITEM_DESCRIPTION + " = ?",
+                new String[]{description}
+        );
     }
 
     // Delete
-    public void deleteVacationItem(int itemId) {
+    public void deleteVacationItem(String description) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME_VACATION_ITEMS, COLUMN_ITEM_ID + " = ?", new String[]{String.valueOf(itemId)});
+        db.delete(TABLE_NAME_VACATION_ITEMS, COLUMN_ITEM_DESCRIPTION + " = ?", new String[]{String.valueOf(description)});
         db.close();
     }
 

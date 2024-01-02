@@ -67,4 +67,20 @@ public class VacationItem {
     public void setItemPurchased(boolean itemPurchased) {
         isItemPurchased = itemPurchased;
     }
+
+    @Override
+    public String toString() {
+        return "VacationItem{" +
+                "Id=" + Id +
+                ", itemName='" + itemName + '\'' +
+                ", itemDescription='" + itemDescription + '\'' +
+                ", itemPrice='" + itemPrice + '\'' +
+                ", isItemPurchased=" + isItemPurchased +
+                ", productImage='" + productImage + '\'' +
+                ", contryname='" + contryname + '\'' +
+                '}';
+    }
+
+
+
 }

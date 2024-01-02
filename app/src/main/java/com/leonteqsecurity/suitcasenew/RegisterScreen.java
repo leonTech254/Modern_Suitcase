@@ -48,8 +48,7 @@ public class RegisterScreen extends AppCompatActivity {
         if(firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || password.isEmpty() || username.isEmpty())
         {
             Toast.makeText(this, "All Fields Required", Toast.LENGTH_SHORT).show();
-
-        }else
+        }else 
         {
             User user=new User();
             user.setEmail(email);
@@ -62,7 +61,6 @@ public class RegisterScreen extends AppCompatActivity {
             Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show();
         }
     }
-
     public void ToLoginScreen(View view) {
         Intent intent = new Intent(this, LoginScreen.class);
         startActivity(intent);

@@ -11,6 +11,10 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/blue</item>
+
+        <!-- Text color if LIGHT MODE is on -->
+
+
         <!-- Customize your theme here. -->
     </style>
 </resources>

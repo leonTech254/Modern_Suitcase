@@ -46,6 +46,8 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("org.jsoup:jsoup:1.14.3")
     implementation("com.caverock:androidsvg:1.4")
+    implementation("com.google.code.gson:gson:2.8.9")
+
 
     testImplementation("junit:junit:4.13.2")
 
