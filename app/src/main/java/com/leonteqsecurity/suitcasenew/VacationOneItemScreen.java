@@ -51,7 +51,7 @@ public class VacationOneItemScreen extends AppCompatActivity {
     }
     public void AllProducts(String productname)
     {
-        Toast.makeText(this, "i got it "+productName, Toast.LENGTH_SHORT).show();
+
         List<VacationItem> vacationItemsList=dbHelper.getAllVacationItems();
         System.out.println(vacationItemsList);
 
@@ -59,6 +59,16 @@ public class VacationOneItemScreen extends AppCompatActivity {
        if(vacationItemOptional.isPresent())
        {
            vacationItem=vacationItemOptional.get();
+           ImageView imageView=(ImageView) findViewById(R.id.IsPuurchaseItem);
+           if(vacationItem.isItemPurchased())
+           {
+
+               imageView.setImageResource(R.drawable.correct);
+           }else
+           {
+
+               imageView.setImageResource(R.drawable.circle_24px);
+           }
            System.out.println(vacationItem);
            vacationProductDescription.setText(vacationItemOptional.get().getItemDescription());
            try {
@@ -130,7 +140,17 @@ public class VacationOneItemScreen extends AppCompatActivity {
     }
     public void IsPurchased(View view) {
         ImageView imageView=(ImageView) findViewById(R.id.IsPuurchaseItem);
-        imageView.setImageResource(R.drawable.correct);
+        if(vacationItem.isItemPurchased())
+        {
+            Toast.makeText(this, "Unchecked as purchased", Toast.LENGTH_SHORT).show();
+            vacationItem.setItemPurchased(false);
+        }else
+        {
+            Toast.makeText(this, "Marked as purchased", Toast.LENGTH_SHORT).show();
+            vacationItem.setItemPurchased(true);
+        }
+        dbHelper.updateVacationItem(vacationItem,productDescription);
+        AllProducts(productName);
     }
 
     public void EditItem(View view) {

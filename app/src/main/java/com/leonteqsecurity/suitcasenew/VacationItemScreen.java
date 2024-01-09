@@ -153,7 +153,6 @@ public class VacationItemScreen extends AppCompatActivity {
                 .setNegativeButton("Cancel", null)
                 .show();
     }
-
     public void AddItem(View view) {
         showAddVacationItemForm();
     }
