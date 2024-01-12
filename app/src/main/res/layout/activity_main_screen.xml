@@ -4,34 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainScreen"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     android:paddingLeft="10dp"
+    tools:context=".MainScreen"
 
     >
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10sp"
-            >
+            android:padding="10sp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Expore"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
+
             <TextView
+                style="@style/TextBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SuitCase"
-                android:textSize="30sp"
-                style="@style/TextBlack"
-                />
+                android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -43,98 +44,105 @@
             android:paddingEnd="20dp"
 
             >
+
             <ImageView
                 android:layout_width="20sp"
                 android:layout_height="20sp"
                 android:src="@drawable/radio_button_checked_24px"
-                app:tint="@color/blue"
                 android:visibility="invisible"
-                />
+                app:tint="@color/blue" />
+
             <TextView
+                style="@style/TextBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Algeria,USA"
-                style="@style/TextBlack"
                 android:visibility="invisible"
 
                 />
         </LinearLayout>
 
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Next Vacation"
-                android:textSize="20sp"
                 android:layout_marginTop="20sp"
-                />
+                android:text="Next Vacation"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/seeAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="see all"
-                android:textColor="@color/blue"
                 android:onClick="SeeAllVacation"
-                />
+                android:text="see all"
+                android:textColor="@color/blue" />
         </LinearLayout>
+
         <ImageView
+            style="@style/TextBlack"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/add_24"
             android:layout_alignParentEnd="true"
-            style="@style/TextBlack"
-            app:tint="@color/black"
             android:layout_centerVertical="true"
             android:layout_marginEnd="20dp"
             android:onClick="AddVactionLocation"
-            />
+            android:src="@drawable/add_24"
+            app:tint="@color/black" />
     </RelativeLayout>
+
     <GridView
-        android:padding="5dp"
         android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnWidth="300dp"
         android:gravity="center"
-        android:numColumns="2"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="0dp"
         android:horizontalSpacing="1dp"
-         />
+        android:numColumns="2"
+        android:padding="5dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="0dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <TextView
+            style="@style/TextBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Recent List"
-            style="@style/TextBlack"
-            android:textSize="20sp"
-            />
+            android:text="Suitcase_2024"
+            android:textSize="20sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="see all"
             android:textColor="@color/blue"
+            android:visibility="invisible"
             />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/and" />
 
     </LinearLayout>
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recentListRecycleView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recentListRecycleView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    />
+        android:layout_height="wrap_content" />
 </LinearLayout>
